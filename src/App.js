@@ -1,7 +1,8 @@
 import React from "react";
+import MainRoutes from "./routes/MainRoutes";
 
 function App() {
-	return <div>App</div>;
+	return <MainRoutes />;
 }
 
 export default App;
