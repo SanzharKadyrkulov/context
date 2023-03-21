@@ -6,6 +6,7 @@ export const productContext = createContext();
 
 function ProductContext({ children }) {
 	const [products, setProducts] = useState([]);
+	const [oneProduct, setOneProduct] = useState(null);
 
 	async function getProducts() {
 		try {
@@ -30,11 +31,24 @@ function ProductContext({ children }) {
 		getProducts();
 	}
 
+	async function getOneProduct(id) {
+		const { data } = await axios.get(`${API}/${id}`);
+		setOneProduct(data);
+	}
+
+	async function editProduct(id, prodEdit) {
+		await axios.patch(`${API}/${id}`, prodEdit);
+		getProducts();
+	}
+
 	const values = {
 		products: products,
+		oneProduct: oneProduct,
 		getProducts: getProducts,
 		addProduct: addProduct,
 		deleteProduct: deleteProduct,
+		getOneProduct: getOneProduct,
+		editProduct: editProduct,
 	};
 	return (
 		<productContext.Provider value={values}>{children}</productContext.Provider>

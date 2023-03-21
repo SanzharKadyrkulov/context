@@ -8,9 +8,11 @@ import {
 	Typography,
 } from "@mui/material";
 import { productContext } from "../contexts/ProductContext";
+import { Link } from "react-router-dom";
 
 function ProductCard({ item }) {
 	const { deleteProduct } = useContext(productContext);
+
 	return (
 		<Card sx={{ maxWidth: 345 }}>
 			<CardMedia sx={{ height: 140 }} image={item.image} title="green iguana" />
@@ -31,7 +33,13 @@ function ProductCard({ item }) {
 				>
 					Delete
 				</Button>
-				<Button color="success" variant="contained" size="small">
+				<Button
+					component={Link}
+					to={`/edit/${item.id}`}
+					color="success"
+					variant="contained"
+					size="small"
+				>
 					Edit
 				</Button>
 			</CardActions>

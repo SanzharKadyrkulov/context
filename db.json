@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Huawei MateBook X Pro",
       "image": "https://avatars.mds.yandex.net/i?id=98d174f84138e9ef70758287a417758d43c42f7f-8194230-images-thumbs&n=13",
-      "price": 4999,
+      "price": "400",
       "description": "The Huawei MateBook X Pro is our pick for the best laptop money can buy in 2018. This is a gorgeously-designed laptop with a stunning screen (albeit with a rather odd aspect ratio), and it comes packed with cutting edge components that allows it to perform brilliantly, and a battery life that runs rings around many of its rivals. It also has a very competitive price, giving you features, design and performance for quite a bit less money."
     },
     {
@@ -34,13 +34,6 @@
       "image": "https://avatars.mds.yandex.net/i?id=fa3eb208d29d6301c23d2a02d36d29e3bbac24dc-6556603-images-thumbs&n=13",
       "price": 1499,
       "description": "While it may not have the best keyboard in the world, the Samsung Notebook 9 is still one of the best laptops you can buy in 2018. Packed with more horsepower than some MacBook Pros,but at a much lower price, Samsung has crafted a laptop that has just as much substance as it does style. Plus, on top of its killer specs, it’s lightweight and thin, making this one of the most portable 15-inch laptops you can buy today."
-    },
-    {
-      "title": "jawsdhj",
-      "price": "jhdvsjavj",
-      "description": "jhgdajhs",
-      "image": "jdvasjdv",
-      "id": 6
     }
   ]
 }
