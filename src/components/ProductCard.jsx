@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
 	Button,
 	Card,
@@ -7,8 +7,10 @@ import {
 	CardMedia,
 	Typography,
 } from "@mui/material";
+import { productContext } from "../contexts/ProductContext";
 
 function ProductCard({ item }) {
+	const { deleteProduct } = useContext(productContext);
 	return (
 		<Card sx={{ maxWidth: 345 }}>
 			<CardMedia sx={{ height: 140 }} image={item.image} title="green iguana" />
@@ -21,7 +23,12 @@ function ProductCard({ item }) {
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<Button color="error" variant="contained" size="small">
+				<Button
+					onClick={() => deleteProduct(item.id)}
+					color="error"
+					variant="contained"
+					size="small"
+				>
 					Delete
 				</Button>
 				<Button color="success" variant="contained" size="small">

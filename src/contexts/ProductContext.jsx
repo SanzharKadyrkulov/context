@@ -16,9 +16,25 @@ function ProductContext({ children }) {
 		}
 	}
 
+	async function addProduct(newProduct) {
+		try {
+			await axios.post(API, newProduct);
+			getProducts();
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
+	async function deleteProduct(id) {
+		await axios.delete(`${API}/${id}`);
+		getProducts();
+	}
+
 	const values = {
 		products: products,
 		getProducts: getProducts,
+		addProduct: addProduct,
+		deleteProduct: deleteProduct,
 	};
 	return (
 		<productContext.Provider value={values}>{children}</productContext.Provider>

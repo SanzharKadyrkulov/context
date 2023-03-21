@@ -12,7 +12,14 @@ function ProductsList() {
 	console.log(products);
 
 	return (
-		<div>
+		<div
+			style={{
+				display: "flex",
+				justifyContent: "center",
+				flexWrap: "wrap",
+				gap: "30px",
+			}}
+		>
 			{products.map((item) => {
 				return <ProductCard key={item.id} item={item} />;
 			})}
