@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import AddProductPage from "../pages/AddProductPage";
 import EditProductPage from "../pages/EditProductPage";
+import ReducerExamplePage from "../pages/ReducerExamplePage";
 
 function MainRoutes() {
 	return (
@@ -15,6 +16,8 @@ function MainRoutes() {
 				<Route path="/edit/:id" element={<EditProductPage />} />
 			</Route>
 			<Route path="*" element={<NotFoundPage />} />
+			
+			<Route path="/reducer" element={<ReducerExamplePage />} />
 		</Routes>
 	);
 }

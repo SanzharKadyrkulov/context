@@ -14,7 +14,16 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
-const pages = [{ title: "Add Product", link: "/add" }];
+const pages = [
+	{
+		title: "Add Product",
+		link: "/add",
+	},
+	{
+		title: "Reducer",
+		link: "/reducer",
+	},
+];
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -57,7 +66,7 @@ function ResponsiveAppBar() {
 							textDecoration: "none",
 						}}
 					>
-						LOGO
+						JSev15
 					</Typography>
 
 					<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -119,7 +128,7 @@ function ResponsiveAppBar() {
 							textDecoration: "none",
 						}}
 					>
-						LOGO
+						JSev15
 					</Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
 						{pages.map((page) => (

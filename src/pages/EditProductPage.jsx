@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function EditProductPage() {
 	const { editProduct, getOneProduct, oneProduct } = useContext(productContext);
-	console.log(oneProduct);
 	const { id } = useParams();
 	const navigate = useNavigate();
 	const [formValue, setFormValue] = useState({
