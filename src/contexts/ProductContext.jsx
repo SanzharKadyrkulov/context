@@ -1,17 +1,38 @@
 import axios from "axios";
-import React, { createContext, useState } from "react";
-import { API } from "../utils/consts";
+import React, { createContext, useReducer, useState } from "react";
+import { ACTIONS, API } from "../utils/consts";
 
 export const productContext = createContext();
 
+const initialState = {
+	products: [],
+	oneProduct: null,
+};
+
+function reducer(state, action) {
+	switch (action.type) {
+		case ACTIONS.products:
+			return { ...state, products: action.payload };
+		case ACTIONS.oneProduct:
+			return { ...state, oneProduct: action.payload };
+		default:
+			return state;
+	}
+}
+
 function ProductContext({ children }) {
-	const [products, setProducts] = useState([]);
-	const [oneProduct, setOneProduct] = useState(null);
+	const [state, dispatch] = useReducer(reducer, initialState);
+	// const [products, setProducts] = useState([]);
+	// const [oneProduct, setOneProduct] = useState(null);
 
 	async function getProducts() {
 		try {
 			const { data } = await axios.get(API);
-			setProducts(data);
+			// setProducts(data);
+			dispatch({
+				type: ACTIONS.products,
+				payload: data,
+			});
 		} catch (e) {
 			console.log(e);
 		}
@@ -33,7 +54,11 @@ function ProductContext({ children }) {
 
 	async function getOneProduct(id) {
 		const { data } = await axios.get(`${API}/${id}`);
-		setOneProduct(data);
+		// setOneProduct(data);
+		dispatch({
+			type: ACTIONS.oneProduct,
+			payload: data
+		})
 	}
 
 	async function editProduct(id, prodEdit) {
@@ -42,8 +67,8 @@ function ProductContext({ children }) {
 	}
 
 	const values = {
-		products: products,
-		oneProduct: oneProduct,
+		products: state.products,
+		oneProduct: state.oneProduct,
 		getProducts: getProducts,
 		addProduct: addProduct,
 		deleteProduct: deleteProduct,

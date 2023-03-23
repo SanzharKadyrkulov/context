@@ -9,9 +9,10 @@ import {
 } from "@mui/material";
 import { productContext } from "../contexts/ProductContext";
 import { Link } from "react-router-dom";
+import { newProductContext } from "../contexts/NewProductContext";
 
 function ProductCard({ item }) {
-	const { deleteProduct } = useContext(productContext);
+	const { deleteProduct } = useContext(newProductContext);
 
 	return (
 		<Card sx={{ maxWidth: 345 }}>

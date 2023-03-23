@@ -2,9 +2,11 @@ import { Box, Button, TextField } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { productContext } from "../contexts/ProductContext";
 import { useNavigate, useParams } from "react-router-dom";
+import { newProductContext } from "../contexts/NewProductContext";
 
 function EditProductPage() {
-	const { editProduct, getOneProduct, oneProduct } = useContext(productContext);
+	const { editProduct, getOneProduct, oneProduct } =
+		useContext(newProductContext);
 	const { id } = useParams();
 	const navigate = useNavigate();
 	const [formValue, setFormValue] = useState({

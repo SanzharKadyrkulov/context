@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import { productContext } from "../contexts/ProductContext";
 import ProductCard from "./ProductCard";
+import { newProductContext } from "../contexts/NewProductContext";
 
 function ProductsList() {
-	const { products, getProducts } = useContext(productContext);
+	const { products, getProducts } = useContext(newProductContext);
 
 	useEffect(() => {
 		getProducts();

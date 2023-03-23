@@ -1,9 +1,10 @@
 import { Box, Button, TextField } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { productContext } from "../contexts/ProductContext";
+import { newProductContext } from "../contexts/NewProductContext";
 
 function AddProductPage() {
-	const { addProduct } = useContext(productContext);
+	const { addProduct } = useContext(newProductContext);
 	const [formValue, setFormValue] = useState({
 		title: "",
 		price: "",
@@ -21,7 +22,7 @@ function AddProductPage() {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		
+
 		addProduct(formValue);
 		setFormValue({
 			title: "",
