@@ -11,7 +11,9 @@ import { productContext } from "../contexts/ProductContext";
 import { Link } from "react-router-dom";
 import { newProductContext } from "../contexts/NewProductContext";
 
+//! получаем item из пропсов
 function ProductCard({ item }) {
+	//! получаем функцию deleteProduct из контекста
 	const { deleteProduct } = useContext(newProductContext);
 
 	return (
@@ -27,6 +29,7 @@ function ProductCard({ item }) {
 			</CardContent>
 			<CardActions>
 				<Button
+					// ! по нажатию удаляем элемент по id
 					onClick={() => deleteProduct(item.id)}
 					color="error"
 					variant="contained"
@@ -35,6 +38,7 @@ function ProductCard({ item }) {
 					Delete
 				</Button>
 				<Button
+					// ! переходим на страницу edit/{id элемента} чтобы мы смогли достать id из адресной строки на странице EitProductPage
 					component={Link}
 					to={`/edit/${item.id}`}
 					color="success"

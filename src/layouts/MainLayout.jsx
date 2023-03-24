@@ -6,6 +6,7 @@ function MainLayout() {
 	return (
 		<div>
 			<Navbar />
+			{/*! Outlet отображает ту страницу на которой мы находимся */}
 			<Outlet />
 		</div>
 	);

@@ -14,6 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
+// ! массив страниц который мы перебираем ниже и отоброжаем соответсвующие кнопки
 const pages = [
 	{
 		title: "Add Product",
@@ -98,9 +99,11 @@ function ResponsiveAppBar() {
 								display: { xs: "block", md: "none" },
 							}}
 						>
+							{/* //! мобильная навигация */}
 							{pages.map((page) => (
 								<MenuItem key={page.title} onClick={handleCloseNavMenu}>
 									<Typography
+										// ! превращаем Typography в компонент Link
 										component={Link}
 										to={page.link}
 										textAlign="center"
@@ -131,9 +134,11 @@ function ResponsiveAppBar() {
 						JSev15
 					</Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+						{/* //! desktop navigation */}
 						{pages.map((page) => (
 							<Button
 								key={page.title}
+								// ! превращаем Button в компонент Link
 								component={Link}
 								to={page.link}
 								onClick={handleCloseNavMenu}

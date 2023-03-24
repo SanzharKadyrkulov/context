@@ -9,14 +9,18 @@ import ReducerExamplePage from "../pages/ReducerExamplePage";
 
 function MainRoutes() {
 	return (
+		// ! все Route должны лежать внутри компонента Routes
 		<Routes>
+			{/* // ! оборачиваем в MainLayout те страницы которые должны следовать шаблону */}
+			{/* (в нашем случае навбар) */}
 			<Route element={<MainLayout />}>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/add" element={<AddProductPage />} />
+				{/* // ! :id это название ключа под которым будут лежать параметры */}
 				<Route path="/edit/:id" element={<EditProductPage />} />
 			</Route>
+			{/* //! Route на не существующий путь */}
 			<Route path="*" element={<NotFoundPage />} />
-			
 			<Route path="/reducer" element={<ReducerExamplePage />} />
 		</Routes>
 	);

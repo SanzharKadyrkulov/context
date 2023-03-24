@@ -7,6 +7,7 @@ import NewProductContext from "./contexts/NewProductContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+	//! оборачиваем в BrowserRouter именно он дает возможность переходить по страницам
 	<BrowserRouter>
 		<ProductContext>
 			<NewProductContext>

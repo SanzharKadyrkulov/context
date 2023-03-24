@@ -4,7 +4,9 @@ import { productContext } from "../contexts/ProductContext";
 import { newProductContext } from "../contexts/NewProductContext";
 
 function AddProductPage() {
+	//! получаем функцию addProduct из контекста
 	const { addProduct } = useContext(newProductContext);
+	//! состояние для данных из инпутов которые по умолчанию пустые
 	const [formValue, setFormValue] = useState({
 		title: "",
 		price: "",
@@ -12,7 +14,11 @@ function AddProductPage() {
 		image: "",
 	});
 
+	//! функция которая при изменении инпута меняет соответсвующий ключ у состояния formValue
 	function handleChange(e) {
+		// ! копируем formValue во избежании потери старых данных
+		// ! e.target.name - какой ключ меняем
+		// ! e.target.value - на что меняем (значение из инпута)
 		const obj = {
 			...formValue,
 			[e.target.name]: e.target.value,
@@ -20,10 +26,22 @@ function AddProductPage() {
 		setFormValue(obj);
 	}
 
+	//! функция для добавления
 	function handleSubmit(e) {
 		e.preventDefault();
-
+		//! проверка на пустые поля
+		if (
+			!formValue.title.trim() ||
+			!formValue.price.trim() ||
+			!formValue.description.trim() ||
+			!formValue.image.trim()
+		) {
+			alert("Заполните поля");
+			return;
+		}
+		//! добавляем данные из формы на db.json
 		addProduct(formValue);
+		//! очищаем инпуты
 		setFormValue({
 			title: "",
 			price: "",
